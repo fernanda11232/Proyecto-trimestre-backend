@@ -10,10 +10,23 @@ app.get('/', (req, res) => {
 
 
 app.post('/register', (req, res) => { //uma funcion con dos parametrps
-    let name = req.body.name;
+    let names = req.body.names;
+    let usernames= req.body.usernames;
+    let contact = req.body.contact;
+    let gmail = req.body.gmail;
+    let date = req.body.date;
+    let gender = req.body.gender;
     let password = req.body.password;
-    res.send(`Su nombre es:  ${name} y su password es:  ${password}`);//respuestas del servidor
+    let confirmpassword = req.body.confirmpassword;
+    return res.send(`Su nombre es:  ${names}, su apellido es: ${usernames}, su telefono es: ${contact}, su gmail es: ${gmail}, su fecha de nacimiento es: ${date}, su genero es: ${gender} y su password es:  ${password}, la comformacion de su contraseña es: ${confirmpassword}`);//respuestas del servidor
 })
+
+app.post('/login', (req, res) => { //uma funcion con dos parametrps
+    let gmail = req.body.gmail;
+    let password = req.body.password;
+    return res.send(`su gamil es: ${gmail}, su contraseña es: ${password}`);//respuestas del servidor
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
